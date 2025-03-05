@@ -1,0 +1,12 @@
+version: "3.8"
+
+services:
+  xk6:
+    build:
+      context: ./xk6
+      dockerfile: Dockerfile
+    container_name: xk6_runner
+    volumes:
+      - ./k6:/workspace
+    working_dir: /workspace
+    command: ["run", "test.js"]
